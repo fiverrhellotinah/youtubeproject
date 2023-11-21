@@ -22,7 +22,20 @@ logger.addHandler(handler)
 
 @app.route('/',methods=['GET'])
 def frontend():
-    pass
+    return render_template('index.html')
+
+@app.route('/study_plan_creator_frontend', methods=['POST', 'GET'])
+def study_plan_creator_frontend():
+    return render_template('study_plan_creator_frontend.html')
+
+@app.route('/explain_concept_frontend', methods=['POST', 'GET'])
+def explain_concept_frontend():
+    return render_template('explain_concept_frontend.html')
+
+@app.route('/build_project_frontend', methods=['POST', 'GET'])
+def build_project_frontend():
+    return render_template('build_project_frontend.html')
+
     
 
 @app.route('/study_plan_creator',methods=['POST','GET'])
