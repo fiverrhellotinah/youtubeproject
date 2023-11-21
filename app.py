@@ -15,7 +15,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Setup logger
-handler = RotatingFileHandler('/root/ds_tinah/logs/app.log', maxBytes=100000, backupCount=3)
+handler = RotatingFileHandler('app.log', maxBytes=100000, backupCount=3)
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 logger.addHandler(handler)
@@ -33,8 +33,32 @@ def study_plan_creator():
     logger.info(f'Project Type: {project_type}')
     logger.info(f'Reference Preference: {reference_preference}')
 
+
+
+    # Define the dictionary
+    experts = {
+    'coding': 'Senior Engineer',
+    'art': 'Artist',
+    'art & craft': 'Craftsman',
+    'music': 'Musician',
+    'dance': 'Dancer',
+    'cooking': 'Chef',
+    'photography': 'Photographer',
+    'writing': 'Author',
+    'design': 'Designer',
+    'marketing': 'Marketing Specialist',
+    'finance': 'Financial Analyst',
+    'science': 'Scientist',
+    'mathematics': 'Mathematician',
+    'history': 'Historian',
+    'philosophy': 'Philosopher'
+    }
+
+    # Get the expert for the given project type
+    expert = experts.get(project_type, 'General Coding Expert')
+
     system_prompt ='''
-    Act as a coding tutor that creates study plans to help people learn to code.
+    Act as a tutor that creates study plans to help people to learn.
     You will be provided with the goal of the student, their time commitment, and resource preferences.
     You will create a study plan with timelines and links to resources. 
     Only include relevant resources because time is limited.
@@ -42,7 +66,7 @@ def study_plan_creator():
 
     query = f'''
     {goal}. I can study {timeframe} hours per week and only want {reference_preference}. 
-    I want to learn to code in {project_type}. Create a study plan for me.
+    I want to learn {project_type}. {expert} create a study plan for me.
     '''
 
 
@@ -128,11 +152,34 @@ def build_project():
     logger.info(f'Project Type: {project_type}')
     logger.info(f'Time Constraint: {time_constraint}')
 
+    # Define the dictionary
+    experts = {
+    'coding': 'Senior Engineer',
+    'art': 'Artist',
+    'art & craft': 'Craftsman',
+    'music': 'Musician',
+    'dance': 'Dancer',
+    'cooking': 'Chef',
+    'photography': 'Photographer',
+    'writing': 'Author',
+    'design': 'Designer',
+    'marketing': 'Marketing Specialist',
+    'finance': 'Financial Analyst',
+    'science': 'Scientist',
+    'mathematics': 'Mathematician',
+    'history': 'Historian',
+    'philosophy': 'Philosopher'
+    }
+
+    project_type = experts.get(project_type, 'General Coding Expert')
+
     system_prompt ='''
-    Act as an expert data scientist.
+    Act as an expert Project Builder. User will provide a goal, time constraint, and project type.
     '''
 
-    query = f'''{goal}. I have {time_constraint} hours to complete it and want to make sure that I practice filtering data and creating a variety of visualizations. Make it in {project_type}.'''
+    query = f'''
+    {goal}. I have {time_constraint} to build a {project_type}.
+    '''
 
 
     try:
