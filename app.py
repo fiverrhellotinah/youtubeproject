@@ -20,6 +20,11 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 logger.addHandler(handler)
 
+@app.route('/',methods=['GET'])
+def frontend():
+    pass
+    
+
 @app.route('/study_plan_creator',methods=['POST','GET'])
 def study_plan_creator():
     goal = request.form.get('goal')
