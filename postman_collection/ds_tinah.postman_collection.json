@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "38e5c99e-83cc-43dc-97e6-3787bee80f1e",
+		"name": "ds_tinah",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26357983"
+	},
+	"item": [
+		{
+			"name": "http://104.225.217.215:5127/build_project",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "goal",
+							"value": "create an exploratory data analysis python data science project about naruto the anime.",
+							"type": "text"
+						},
+						{
+							"key": "project_type",
+							"value": "Python",
+							"type": "text"
+						},
+						{
+							"key": "time_constraint",
+							"value": "10",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://104.225.217.215:5127/build_project",
+					"protocol": "http",
+					"host": [
+						"104",
+						"225",
+						"217",
+						"215"
+					],
+					"port": "5127",
+					"path": [
+						"build_project"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://104.225.217.215:5127/explain_concept",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "concept_name",
+							"value": "I want to learn data science, specifically statistics for data science",
+							"type": "text"
+						},
+						{
+							"key": "weekly_time",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "time_frame",
+							"value": "5 weeks",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://104.225.217.215:5127/explain_concept",
+					"protocol": "http",
+					"host": [
+						"104",
+						"225",
+						"217",
+						"215"
+					],
+					"port": "5127",
+					"path": [
+						"explain_concept"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://104.225.217.215:5127/study_plan_creator",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "goal",
+							"value": "I want to become a data scientist but I do not know how to code.",
+							"type": "text"
+						},
+						{
+							"key": "timeframe",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "project_type",
+							"value": "Python",
+							"type": "text"
+						},
+						{
+							"key": "reference_preference",
+							"value": "You Tube video resources",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://104.225.217.215:5127/study_plan_creator",
+					"protocol": "http",
+					"host": [
+						"104",
+						"225",
+						"217",
+						"215"
+					],
+					"port": "5127",
+					"path": [
+						"study_plan_creator"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
