@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.form-label {
+    font-weight: 700;
+    font-size: 14px;
+}
+.form-control {
+    border: 1.5px solid #E2E5E8;
+    width: 100%;
+    border-radius: 7px;
+    padding: 8px;
+    font-size: 14px;
+}
+.form-control:focus {
+    border: 1.5px solid #343540;
+    outline: none;
+}
+select {
+  appearance: none;
+  background-image: url("/assets/arrow.png");
+  background-position: right 5px center;
+  background-repeat: no-repeat;
+}
+  
