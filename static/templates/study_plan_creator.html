@@ -4,18 +4,18 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../styles/output.css" rel="stylesheet"/>
+        <link  href="../css/output.css" rel="stylesheet"/>
         <title>Study Bench</title>
     </head>
     <body class="bg-[#3e2a4f]">
         <div class="min-h-[100vh] py-[20px] flex flex-col justify-center items-center">
-            <div class="lg:w-[50%] w-[90%] bg-white rounded-lg text-[#374151]">
-                <form id="buildProjectForm" class="py-3 px-5">
-                    <h1 class="text-[20px] text-[#111827]">Build Project</h1>
-                    <p class="text-[14px] text-[#4B5563]">Provide Starter Code and outline project structure</p>
-                    <div id="buildProjectErrorMessageContainer" class="mt-5 bg-red-50 border border-red-500 rounded-md p-2 hidden justify-between items-center">
-                        <p id="buildProjectErrorMessage" class="text-red-500 font-semibold text-[14px]"></p>
-                        <button type="button" id="closeBuildProjectErrorBtn">
+            <form id="studyPlanForm" class="lg:w-[50%] w-[90%] bg-white rounded-lg text-[#374151]">
+                <div class="py-3 px-5">
+                    <h1 class="text-[20px] text-[#111827]">Study Plan Creator</h1>
+                    <p class="text-[14px] text-[#4B5563]">Create study plan with timeline and relevant resources.</p>
+                    <div id="studyPlanErrorMessageContainer" class="mt-5 bg-red-50 border border-red-500 rounded-md p-2 hidden justify-between items-center">
+                        <p id="studyPlanErrorMessage" class="text-red-500 font-semibold text-[14px]"></p>
+                        <button type="button" id="closeStudyPlanErrorBtn">
                             <img width="18" height="18" src="https://img.icons8.com/color/18/delete-sign--v1.png" alt="delete-sign--v1"/>
                         </button>
                     </div>
@@ -26,11 +26,9 @@
                         </div>
                         <div class="mt-4 grid lg:grid-cols-2 grid-cols-1 gap-4">
                             <div>
-                                <label class="form-label block">What is your time constraint?</label>
-                                <input name="time_constraint" type="text" class="form-control mt-2" />
+                                <label class="form-label block">What is your timeframe?</label>
+                                <input name="timeframe" type="text" class="form-control mt-2" />
                             </div>
-                        </div>
-                        <div class="mt-4 grid lg:grid-cols-2 grid-cols-1 gap-4">
                             <div>
                                 <label class="form-label block">What type of project?</label>
                                 <select name="project_type" class="form-control form-select mt-2">
@@ -41,19 +39,25 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="mt-4 grid lg:grid-cols-2 grid-cols-1 gap-4">
+                            <div>
+                                <label class="form-label block">What is your reference Preference?</label>
+                                <input name="reference_preference" type="text" class="form-control mt-2" />
+                            </div>
+                        </div>
                     </div>
-                </form>
+                </div>
                 <div class="mt-4 bg-[#F9FAFB] flex justify-end gap-3 py-3 px-5 rounded-b-lg">
                     <a class="px-5 py-[7px] rounded-md border border-[#D1D5DB] bg-white text-[14px]" href="./index.html">Back</a>
-                    <button type="button" id="buildProjectSubmitBtn" class="px-5 py-[7px] rounded-md border border-[#544372] bg-[#544372] text-white text-[14px] disabled:bg-[#836b91] disabled:border-[#836b91]">Build</button>
+                    <button type="button" id="studyPlanSubmitBtn" class="px-5 py-[7px] rounded-md border border-[#544372] bg-[#544372] text-white text-[14px] disabled:bg-[#836b91] disabled:border-[#836b91]">Create Plan</button>
                 </div>
-            </div>
-            <div id="buildProjectResponseContainer" class="lg:w-[50%] w-[90%] rounded-lg mt-4 hidden">
+            </form>
+            <div id="studyPlanResponseContainer" class="lg:w-[50%] w-[90%] rounded-lg mt-4 hidden">
                 <div class="bg-white py-3 px-5 rounded-t-md">
-                    <h1 class="text-[20px] text-[#111827]">Build Project</h1>
+                    <h1 class="text-[20px] text-[#111827]">Study Plan</h1>
                 </div>
                 <div class="bg-[#E7E9EC] py-3 px-5 rounded-b-md text-[14px]">
-                    <p id="buildProjectResponse"></p>
+                    <p id="studyPlanResponse"></p>
                 </div>
             </div>
         </div>
