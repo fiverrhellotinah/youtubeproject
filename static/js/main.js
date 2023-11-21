@@ -1,4 +1,31 @@
 $(document).ready(function () {
+
+    const options = {
+        'coding': 'Senior Engineer',
+        'art': 'Artist',
+        'art & craft': 'Craftsman',
+        'music': 'Musician',
+        'dance': 'Dancer',
+        'cooking': 'Chef',
+        'photography': 'Photographer',
+        'writing': 'Author',
+        'design': 'Designer',
+        'marketing': 'Marketing Specialist',
+        'finance': 'Financial Analyst',
+        'science': 'Scientist',
+        'mathematics': 'Mathematician',
+        'history': 'Historian',
+        'philosophy': 'Philosopher'
+    };
+
+    const projectTypeDropdown = $('#project_type_dropdown');
+
+    $.each(options, function(key, value) {
+        projectTypeDropdown.append($('<option>', {
+            value: value,
+            text: key
+        }));
+    });
     
     /** STUDY PLAN SECTION */
 
