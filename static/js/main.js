@@ -103,7 +103,7 @@ $(document).ready(function () {
                 }
             }
             finally {
-                $('#explainConceptSubmitBtn').text('Create Plan');
+                $('#explainConceptSubmitBtn').text('Explain');
                 $('#explainConceptSubmitBtn').prop('disabled', false);
             }
         })();
@@ -145,7 +145,7 @@ $(document).ready(function () {
                 }
             }
             finally {
-                $('#buildProjectSubmitBtn').text('Create Plan');
+                $('#buildProjectSubmitBtn').text('Build');
                 $('#buildProjectSubmitBtn').prop('disabled', false);
             }
         })();
