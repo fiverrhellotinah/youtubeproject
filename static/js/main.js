@@ -26,6 +26,8 @@ $(document).ready(function () {
             text: key
         }));
     });
+
+    const baseUrl = 'http://104.225.217.215:5127';
     
     /** STUDY PLAN SECTION */
 
@@ -41,7 +43,7 @@ $(document).ready(function () {
                         throw new Error('Some fields are missing');
                     }
                 });
-                const response = await fetch('http://104.225.217.215:5127/study_plan_creator', {
+                const response = await fetch(`${baseUrl}/study_plan_creator`, {
                     method: 'POST',
                     body: formData
                 })
@@ -83,7 +85,7 @@ $(document).ready(function () {
                         throw new Error('Some fields are missing');
                     }
                 });
-                const response = await fetch('http://104.225.217.215:5127/explain_concept', {
+                const response = await fetch(`${baseUrl}/explain_concept`, {
                     method: 'POST',
                     body: formData
                 })
@@ -125,7 +127,7 @@ $(document).ready(function () {
                         throw new Error('Some fields are missing');
                     }
                 });
-                const response = await fetch('http://104.225.217.215:5127/build_project', {
+                const response = await fetch(`${baseUrl}/build_project`, {
                     method: 'POST',
                     body: formData
                 })
