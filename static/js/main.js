@@ -1,21 +1,21 @@
 $(document).ready(function () {
 
     const projectTypeOptions = {
-        'coding': 'Senior Engineer',
-        'art': 'Artist',
-        'art & craft': 'Craftsman',
-        'music': 'Musician',
-        'dance': 'Dancer',
-        'cooking': 'Chef',
-        'photography': 'Photographer',
-        'writing': 'Author',
-        'design': 'Designer',
-        'marketing': 'Marketing Specialist',
-        'finance': 'Financial Analyst',
-        'science': 'Scientist',
-        'mathematics': 'Mathematician',
-        'history': 'Historian',
-        'philosophy': 'Philosopher'
+        'Coding': 'Senior Engineer',
+        'Art': 'Artist',
+        'Art & craft': 'Craftsman',
+        'Music': 'Musician',
+        'Dance': 'Dancer',
+        'Cooking': 'Chef',
+        'Photography': 'Photographer',
+        'Writing': 'Author',
+        'Design': 'Designer',
+        'Marketing': 'Marketing Specialist',
+        'Finance': 'Financial Analyst',
+        'Science': 'Scientist',
+        'Mathematics': 'Mathematician',
+        'History': 'Historian',
+        'Philosophy': 'Philosopher'
     };
 
     const projectTypeDropdown = $('#project_type_dropdown');
