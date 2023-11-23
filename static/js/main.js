@@ -27,6 +27,74 @@ $(document).ready(function () {
         }));
     });
 
+    const referencPreferenceDropDown = $("#reference_preference")
+
+    const referencePreferanceOptions= {"Youtube": "youtube", "Book": "book", "List of Authors": "list of authors"}
+
+    
+
+    $.each(referencePreferanceOptions, function(key, value) {
+        referencPreferenceDropDown.append($('<option>', {
+            value: value,
+            text: key
+        }));
+    });
+
+    function createTimeDurationObject() {
+        let durations = [];
+
+        for (let i = 1; i <= 20; i++) {
+            durations.push({ key: `${i} hour${i > 1 ? 's' : ''}`, value: i });
+        }
+    
+        for (let i = 1; i <= 30; i++) {
+            durations.push({ key: `${i} day${i > 1 ? 's' : ''}`, value: i * 24 });
+        }
+    
+        
+        for (let i = 1; i <= 9; i++) {
+            durations.push({ key: `${i} month${i > 1 ? 's' : ''}`, value: i * 30 * 24 });
+        }
+    
+        
+        durations.sort((a, b) => a.value - b.value);
+    
+        
+        const sortedDurations = {};
+        durations.forEach(duration => {
+            sortedDurations[duration.key] = duration.value;
+        });
+    
+        return sortedDurations;
+    }
+    
+    const timeFrameOptions = createTimeDurationObject()
+
+    const timeFrameDropdown = $("#timeframe")
+
+
+    
+
+    $.each(timeFrameOptions, function(key, value) {
+        timeFrameDropdown.append($('<option>', {
+            value: key,
+            text: key
+        }));
+    });
+
+    const timeConstraintsDropdown = $("#time_constraint")
+
+
+    
+
+    $.each(timeFrameOptions, function(key, value) {
+        timeConstraintsDropdown.append($('<option>', {
+            value: key,
+            text: key
+        }));
+    });
+
+
     const baseUrl = 'http://104.225.217.215:5127';
     
     /** STUDY PLAN SECTION */
