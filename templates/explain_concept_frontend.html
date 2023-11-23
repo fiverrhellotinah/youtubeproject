@@ -29,16 +29,6 @@
                             <label class="form-label block">What concept you want explained?</label>
                             <textarea name="concept_name" class="form-control mt-2" rows="4"></textarea>
                         </div>
-                        <div class="mt-4 grid lg:grid-cols-2 grid-cols-1 gap-4">
-                            <div>
-                                <label class="form-label block">What is your timeframe?</label>
-                                <input name="timeframe" type="text" class="form-control mt-2" />
-                            </div>
-                            <div>
-                                <label class="form-label block">What is your weekly time?</label>
-                                <input name="weekly_time" type="text" class="form-control mt-2" />
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="mt-4 bg-[#F9FAFB] flex justify-end gap-3 py-3 px-5 rounded-b-lg">
@@ -51,10 +41,11 @@
                     <h1 class="text-[20px] text-[#111827]">Explain Concept</h1>
                 </div>
                 <div class="bg-[#E7E9EC] py-3 px-5 rounded-b-md text-[14px]">
-                    <p id="explainConceptResponse"></p>
+                    <div class="response-cover" id="explainConceptResponse"></div>
                 </div>
             </div>
         </div>
+        <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="/static/js/main.js"></script>
     </body>

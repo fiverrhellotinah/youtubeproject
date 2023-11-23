@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    const options = {
+    const projectTypeOptions = {
         'coding': 'Senior Engineer',
         'art': 'Artist',
         'art & craft': 'Craftsman',
@@ -20,14 +20,34 @@ $(document).ready(function () {
 
     const projectTypeDropdown = $('#project_type_dropdown');
 
-    $.each(options, function(key, value) {
+    $.each(projectTypeOptions, function(key, value) {
         projectTypeDropdown.append($('<option>', {
             value: value,
             text: key
         }));
     });
 
+    const timeFrameOptions = [
+        '1 hour', '2 hours', '3 hours', '4 hours', '5 hours', '6 hours', '7 hours', '8 hours', '9 hours', '10 hours',
+        '11 hours', '12 hours', '13 hours', '14 hours', '15 hours', '16 hours', '17 hours', '18 hours', '19 hours', '20 hours',
+        '1 day', '2 days', '3 days', '4 days', '5 days', '6 days', '7 days', '8 days', '9 days', '10 days',
+        '11 days', '12 days', '13 days', '14 days', '15 days', '16 days', '17 days', '18 days', '19 days', '20 days',
+        '21 days', '22 days', '23 days', '24 days', '25 days', '26 days', '27 days', '28 days', '29 days', '30 days',
+        '1 month', '2 months', '3 months', '4 months', '5 months', '6 months', '7 months', '8 months', '9 months'
+    ];
+
+    const timeFrameDropDown = $("#time_dropdown");
+
+    $.each(timeFrameOptions, function(index, value) {
+        timeFrameDropDown.append($('<option>', {
+            value: value,
+            text: value
+        }));
+    });
+
     const baseUrl = 'http://104.225.217.215:5127';
+
+    const converter = new showdown.Converter();
     
     /** STUDY PLAN SECTION */
 
@@ -51,7 +71,8 @@ $(document).ready(function () {
                     throw new Error('Something went wrong');
                 }
                 const data = await response.json();
-                $('#studyPlanResponse').text(data.response);
+                const html = converter.makeHtml(data.response);
+                $('#studyPlanResponse').html(html);
                 $('#studyPlanResponseContainer').removeClass('hidden');
             } catch (error) {
                 console.log(error);
@@ -93,7 +114,8 @@ $(document).ready(function () {
                     throw new Error('Something went wrong');
                 }
                 const data = await response.json();
-                $('#explainConceptResponse').text(data.response);
+                const html = converter.makeHtml(data.response);
+                $('#explainConceptResponse').html(html);
                 $('#explainConceptResponseContainer').removeClass('hidden');
             } catch (error) {
                 console.log(error);
@@ -135,7 +157,8 @@ $(document).ready(function () {
                     throw new Error('Something went wrong');
                 }
                 const data = await response.json();
-                $('#buildProjectResponse').text(data.response);
+                const html = converter.makeHtml(data.response);
+                $('#buildProjectResponse').html(html);
                 $('#buildProjectResponseContainer').removeClass('hidden');
             } catch (error) {
                 console.log(error);

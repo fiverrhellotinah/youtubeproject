@@ -32,7 +32,7 @@
                         <div class="mt-4 grid lg:grid-cols-2 grid-cols-1 gap-4">
                             <div>
                                 <label class="form-label block">What is your time constraint?</label>
-                                <input name="time_constraint" type="text" class="form-control mt-2" />
+                                <select id="time_dropdown" name="time_constraint" class="form-control form-select mt-2"></select>
                             </div>
                         </div>
                         <div class="mt-4 grid lg:grid-cols-2 grid-cols-1 gap-4">
@@ -53,10 +53,11 @@
                     <h1 class="text-[20px] text-[#111827]">Build Project</h1>
                 </div>
                 <div class="bg-[#E7E9EC] py-3 px-5 rounded-b-md text-[14px]">
-                    <p id="buildProjectResponse"></p>
+                    <div class="response-cover" id="buildProjectResponse"></div>
                 </div>
             </div>
         </div>
+        <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="/static/js/main.js"></script>
     </body>
