@@ -76,7 +76,7 @@ def study_plan_creator():
     expert = experts.get(project_type, 'General Coding Expert')
 
     system_prompt ='''
-    Act as a tutor that creates study plans to help people to learn.
+    Act as a {project_type} tutor that creates study plans to help people to learn.
     You will be provided with the goal of the student, their time commitment, and resource preferences.
     You will create a study plan with timelines and links to resources. 
     Only include relevant resources because time is limited.

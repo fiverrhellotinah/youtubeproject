@@ -27,23 +27,73 @@ $(document).ready(function () {
         }));
     });
 
-    const timeFrameOptions = [
-        '1 hour', '2 hours', '3 hours', '4 hours', '5 hours', '6 hours', '7 hours', '8 hours', '9 hours', '10 hours',
-        '11 hours', '12 hours', '13 hours', '14 hours', '15 hours', '16 hours', '17 hours', '18 hours', '19 hours', '20 hours',
-        '1 day', '2 days', '3 days', '4 days', '5 days', '6 days', '7 days', '8 days', '9 days', '10 days',
-        '11 days', '12 days', '13 days', '14 days', '15 days', '16 days', '17 days', '18 days', '19 days', '20 days',
-        '21 days', '22 days', '23 days', '24 days', '25 days', '26 days', '27 days', '28 days', '29 days', '30 days',
-        '1 month', '2 months', '3 months', '4 months', '5 months', '6 months', '7 months', '8 months', '9 months'
-    ];
+    const referencPreferenceDropDown = $("#reference_preference")
 
-    const timeFrameDropDown = $("#time_dropdown");
+    const referencePreferanceOptions= {"Youtube": "youtube", "Book": "book", "List of Authors": "list of authors"}
 
-    $.each(timeFrameOptions, function(index, value) {
-        timeFrameDropDown.append($('<option>', {
+    
+
+    $.each(referencePreferanceOptions, function(key, value) {
+        referencPreferenceDropDown.append($('<option>', {
             value: value,
-            text: value
+            text: key
         }));
     });
+
+    function createTimeDurationObject() {
+        let durations = [];
+
+        for (let i = 1; i <= 20; i++) {
+            durations.push({ key: `${i} hour${i > 1 ? 's' : ''}`, value: i });
+        }
+    
+        for (let i = 1; i <= 30; i++) {
+            durations.push({ key: `${i} day${i > 1 ? 's' : ''}`, value: i * 24 });
+        }
+    
+        
+        for (let i = 1; i <= 9; i++) {
+            durations.push({ key: `${i} month${i > 1 ? 's' : ''}`, value: i * 30 * 24 });
+        }
+    
+        
+        durations.sort((a, b) => a.value - b.value);
+    
+        
+        const sortedDurations = {};
+        durations.forEach(duration => {
+            sortedDurations[duration.key] = duration.value;
+        });
+    
+        return sortedDurations;
+    }
+    
+    const timeFrameOptions = createTimeDurationObject()
+
+    const timeFrameDropdown = $("#timeframe")
+
+
+    
+
+    $.each(timeFrameOptions, function(key, value) {
+        timeFrameDropdown.append($('<option>', {
+            value: key,
+            text: key
+        }));
+    });
+
+    const timeConstraintsDropdown = $("#time_constraint")
+
+
+    
+
+    $.each(timeFrameOptions, function(key, value) {
+        timeConstraintsDropdown.append($('<option>', {
+            value: key,
+            text: key
+        }));
+    });
+
 
     const baseUrl = 'http://104.225.217.215:5127';
 
