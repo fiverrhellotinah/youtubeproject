@@ -14,8 +14,8 @@
             <div></div>
         </nav>
         <div class="mt-10 flex flex-col justify-center items-center py-2">
-            <form id="studyPlanForm" class="lg:w-[50%] w-[90%] bg-white rounded-lg text-[#374151]">
-                <div class="py-3 px-5">
+            <div class="lg:w-[50%] w-[90%] bg-white rounded-lg text-[#374151]">
+                <form id="studyPlanForm" class="py-3 px-5">
                     <h1 class="text-[20px] text-[#111827]">Study Plan Creator</h1>
                     <p class="text-[14px] text-[#4B5563]">Create study plan with timeline and relevant resources.</p>
                     <div id="studyPlanErrorMessageContainer" class="mt-5 bg-red-50 border border-red-500 rounded-md p-2 hidden justify-between items-center">
@@ -33,7 +33,7 @@
                             <div>
                                 <label class="form-label block">What is your timeframe?</label>
                                 
-                                <select id="timeframe" name="timeframe" type="text" class="form-control mt-2" />
+                                <select id="timeframe" name="timeframe" type="text" class="form-control mt-2"></select>
                                     
                             </div>
                             <div>
@@ -44,16 +44,16 @@
                         <div class="mt-4 grid lg:grid-cols-2 grid-cols-1 gap-4">
                             <div>
                                 <label class="form-label block">What is your reference Preference?</label>
-                                <select id="reference_preference" name="reference_preference" type="text" class="form-control mt-2" />
+                                <select id="reference_preference" name="reference_preference" type="text" class="form-control mt-2"></select>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
                 <div class="mt-4 bg-[#F9FAFB] flex justify-end gap-3 py-3 px-5 rounded-b-lg">
                     <a class="px-5 py-[7px] rounded-md border border-[#D1D5DB] bg-white text-[14px]" href="/">Back</a>
                     <button type="button" id="studyPlanSubmitBtn" class="px-5 py-[7px] rounded-md border border-[#544372] bg-[#544372] text-white text-[14px] disabled:bg-[#836b91] disabled:border-[#836b91]">Create Plan</button>
                 </div>
-            </form>
+            </div>
             <div id="studyPlanResponseContainer" class="lg:w-[50%] w-[90%] rounded-lg mt-4 hidden">
                 <div class="bg-white py-3 px-5 rounded-t-md">
                     <h1 class="text-[20px] text-[#111827]">Study Plan</h1>
