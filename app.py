@@ -40,6 +40,7 @@ def build_project_frontend():
 
 @app.route('/study_plan_creator',methods=['POST','GET'])
 def study_plan_creator():
+    # print(request.form)
     goal = request.form.get('goal')
     timeframe = request.form.get('timeframe')
     project_type = request.form.get('project_type')
@@ -71,22 +72,24 @@ def study_plan_creator():
     'history': 'Historian',
     'philosophy': 'Philosopher'
     }
-
+    # print(experts)
     # Get the expert for the given project type
     expert = experts.get(project_type, 'General Coding Expert')
-
-    system_prompt ='''
-    Act as a {project_type} tutor that creates study plans to help people to learn.
+    # expert = experts[project_type]
+    # print(expert)
+    system_prompt =f'''
+    Supose you are {expert}. You also works as a tutor of {project_type} and creates study plans to help people to learn different topics.
     You will be provided with the goal of the student, their time commitment, and resource preferences.
     You will create a study plan with timelines and links to resources. 
     Only include relevant resources because time is limited.
     '''
 
     query = f'''
-    {goal}. I can study {timeframe} hours per week and only want {reference_preference}. 
-    I want to learn {project_type}. {expert} create a study plan for me.
+    {goal}. I can study on this topic for {timeframe}. I only want {reference_preference} as references.
+    Make a {timeframe.split()[-1].replace('s', '')}-by-{timeframe.split()[-1].replace('s', '')} plan with detailed stes and references.
     '''
 
+    print(system_prompt, query)
 
     try:
         response = openai.ChatCompletion.create(
