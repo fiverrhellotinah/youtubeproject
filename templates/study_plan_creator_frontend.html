@@ -27,7 +27,7 @@
                     <div class="mt-5">
                         <div>
                             <label class="form-label block">What is your goal?</label>
-                            <textarea name="goal" class="form-control mt-2" rows="4"></textarea>
+                            <textarea placeholder="eg. I want to learn AI skills to build AI apps using the OpenAI API" name="goal" class="form-control mt-2" rows="4"></textarea>
                         </div>
                         <div class="mt-4 grid lg:grid-cols-2 grid-cols-1 gap-4">
                             <div>
@@ -51,7 +51,9 @@
                 </form>
                 <div class="mt-4 bg-[#F9FAFB] flex justify-end gap-3 py-3 px-5 rounded-b-lg">
                     <a class="px-5 py-[7px] rounded-md border border-[#D1D5DB] bg-white text-[14px]" href="/">Back</a>
-                    <button type="button" id="studyPlanSubmitBtn" class="px-5 py-[7px] rounded-md border border-[#544372] bg-[#544372] text-white text-[14px] disabled:bg-[#836b91] disabled:border-[#836b91]">Create Plan</button>
+                    <button type="button" id="studyPlanSubmitBtn" class="px-5 py-[7px] rounded-md border border-[#544372] bg-[#544372] text-white text-[14px] disabled:bg-[#836b91] disabled:border-[#836b91]">
+                        Create Plan <img src="../static/images/icons8-spinner.gif" />
+                    </button>
                 </div>
             </div>
             <div id="studyPlanResponseContainer" class="lg:w-[50%] w-[90%] rounded-lg mt-4 hidden">
