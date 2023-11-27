@@ -95,7 +95,7 @@ $(document).ready(function () {
     });
 
 
-    const baseUrl = 'http://104.225.217.215:5127';
+    const baseUrl = window.location.href;
 
     const converter = new showdown.Converter();
     
