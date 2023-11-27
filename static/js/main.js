@@ -35,7 +35,7 @@ $(document).ready(function () {
 
     $.each(referencePreferanceOptions, function(key, value) {
         referencPreferenceDropDown.append($('<option>', {
-            value: value,
+            value:  key.toLowerCase(),
             text: key
         }));
     });

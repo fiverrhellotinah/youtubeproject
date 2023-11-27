@@ -126,13 +126,13 @@ def explain_concept():
     logger.info(f'Concept Name: {concept_name}')
 
     system_prompt ='''
-    Act as a personal learning tutor bot. 
-    You will be provided with the goal of the student, their time commitment, and resource preferences. 
-    You will compile a list of resources related to the specific topic, goal of the student, time commitment, and resource preferences of the student.
-    Include between 3 - 5 resources, possibly also combining them together to provide a more comprehensive plan.
+    You will be provided a topic.
+    You will provide an explanation on that given topic, assuming that the user has very little relevant knowledge.
+    Use analogies and examples in your explanation.
+    Also, include examples to implement the concept if applicable.
     '''
 
-    query = f'''{concept_name}.I can dedicate  {weekly_time} hours per week for {time_frame} and only want free video resources.'''
+    query = f'''Explain "{concept_name}" in details.'''
 
     try:
         response = openai.ChatCompletion.create(
@@ -175,7 +175,7 @@ def build_project():
 
     # Define the dictionary
     experts = {
-    'coding': 'Senior Engineer',
+    'coding': 'Senior Programmer',
     'art': 'Artist',
     'art & craft': 'Craftsman',
     'music': 'Musician',
@@ -194,18 +194,25 @@ def build_project():
 
     project_type = experts.get(project_type, 'General Coding Expert')
 
-    system_prompt ='''
-    Act as an expert Project Builder. User will provide a goal, time constraint, and project type.
+    expert = experts.get(project_type, 'General Coding Expert')
+
+    system_prompt =f'''
+    Act as an expert {expert}. User will give the description on a project.
+    Provide a project outline.
+    Also provide the starter codes for the project.
     '''
 
     query = f'''
-    {goal}. I have {time_constraint} to build a {project_type}.
+    {goal}. I have {time_constraint} to build this {project_type} project. Provide an outline {time_constraint.split()[-1].replace('s', '')}-by-{time_constraint.split()[-1].replace('s', '')}. 
+    Also provide the started code afterwards.
     '''
 
+    print(system_prompt, query)
 
     try:
         response = openai.ChatCompletion.create(
-            model='gpt-3.5-turbo',
+            # model='gpt-3.5-turbo',
+            model= 'gpt-4',
             messages=[{
                 'role':'system','content':system_prompt,
                 'role':'user','content':query
