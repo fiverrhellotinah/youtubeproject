@@ -105,7 +105,7 @@ $(document).ready(function () {
         (async function() {
             try {
                 $('#studyPlanSubmitBtn').prop('disabled', true);
-                $('#studyPlanSubmitBtn').text('Loading...');
+                $('#spinner').removeClass('hidden');
                 const form = document.getElementById('studyPlanForm');
                 const formData = new FormData(form);
                 formData.forEach(function(value, key) {
@@ -132,8 +132,8 @@ $(document).ready(function () {
                 }
             }
             finally {
-                $('#studyPlanSubmitBtn').text('Create Plan');
                 $('#studyPlanSubmitBtn').prop('disabled', false);
+                $('#spinner').addClass('hidden');
             }
         })();
     });
@@ -148,7 +148,7 @@ $(document).ready(function () {
         (async function() {
             try {
                 $('#explainConceptSubmitBtn').prop('disabled', true);
-                $('#explainConceptSubmitBtn').text('Loading...');
+                $('#spinner').removeClass('hidden');
                 const form = document.getElementById('explainConceptForm');
                 const formData = new FormData(form);
                 formData.forEach(function(value, key) {
@@ -175,8 +175,8 @@ $(document).ready(function () {
                 }
             }
             finally {
-                $('#explainConceptSubmitBtn').text('Explain');
                 $('#explainConceptSubmitBtn').prop('disabled', false);
+                $('#spinner').addClass('hidden');
             }
         })();
     });
@@ -191,7 +191,7 @@ $(document).ready(function () {
         (async function() {
             try {
                 $('#buildProjectSubmitBtn').prop('disabled', true);
-                $('#buildProjectSubmitBtn').text('Loading...');
+                $('#spinner').removeClass('hidden');
                 const form = document.getElementById('buildProjectForm');
                 const formData = new FormData(form);
                 formData.forEach(function(value, key) {
@@ -218,8 +218,8 @@ $(document).ready(function () {
                 }
             }
             finally {
-                $('#buildProjectSubmitBtn').text('Build');
                 $('#buildProjectSubmitBtn').prop('disabled', false);
+                $('#spinner').addClass('hidden');
             }
         })();
     });

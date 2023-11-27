@@ -659,6 +659,10 @@ video {
   justify-content: stretch;
 }
 
+.gap-small {
+  gap: 5px;
+}
+
 .gap-3 {
   gap: 0.75rem;
 }
