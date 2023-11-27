@@ -95,7 +95,7 @@ $(document).ready(function () {
     });
 
 
-    const baseUrl = window.location.href;
+    const baseUrl = window.location.origin;
 
     const converter = new showdown.Converter();
     
