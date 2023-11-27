@@ -54,7 +54,7 @@ def study_plan_creator():
 
 
 
-    # Define the dictionary
+    #Define the dictionary
     experts = {
     'coding': 'Senior Engineer',
     'art': 'Artist',
@@ -72,6 +72,8 @@ def study_plan_creator():
     'history': 'Historian',
     'philosophy': 'Philosopher'
     }
+
+    
     # print(experts)
     # Get the expert for the given project type
     expert = experts.get(project_type, 'General Coding Expert')
@@ -86,7 +88,7 @@ def study_plan_creator():
 
     query = f'''
     {goal}. I can study on this topic for {timeframe}. I only want {reference_preference} as references.
-    Make a {timeframe.split()[-1].replace('s', '')}-by-{timeframe.split()[-1].replace('s', '')} plan with detailed stes and references.
+    Make a {timeframe.split()[-1].replace('s', '')}-by-{timeframe.split()[-1].replace('s', '')} plan with detailed steps and references.
     '''
 
     print(system_prompt, query)
@@ -174,25 +176,31 @@ def build_project():
     logger.info(f'Time Constraint: {time_constraint}')
 
     # Define the dictionary
+    # experts = {
+    # 'coding': 'Senior Programmer',
+    # 'art': 'Artist',
+    # 'art & craft': 'Craftsman',
+    # 'music': 'Musician',
+    # 'dance': 'Dancer',
+    # 'cooking': 'Chef',
+    # 'photography': 'Photographer',
+    # 'writing': 'Author',
+    # 'design': 'Designer',
+    # 'marketing': 'Marketing Specialist',
+    # 'finance': 'Financial Analyst',
+    # 'science': 'Scientist',
+    # 'mathematics': 'Mathematician',
+    # 'history': 'Historian',
+    # 'philosophy': 'Philosopher'
+    # }
+
     experts = {
-    'coding': 'Senior Programmer',
-    'art': 'Artist',
-    'art & craft': 'Craftsman',
-    'music': 'Musician',
-    'dance': 'Dancer',
-    'cooking': 'Chef',
-    'photography': 'Photographer',
-    'writing': 'Author',
-    'design': 'Designer',
-    'marketing': 'Marketing Specialist',
-    'finance': 'Financial Analyst',
-    'science': 'Scientist',
-    'mathematics': 'Mathematician',
-    'history': 'Historian',
-    'philosophy': 'Philosopher'
+    'General Coding': 'Senior Programmer',
+    'Data Science': 'Senior Data Scientist',
+    'AI Expert': 'AI Expert',
+    'Web Developement': 'Senior Web Developer' 
     }
 
-    project_type = experts.get(project_type, 'General Coding Expert')
 
     expert = experts.get(project_type, 'General Coding Expert')
 
@@ -204,15 +212,15 @@ def build_project():
 
     query = f'''
     {goal}. I have {time_constraint} to build this {project_type} project. Provide an outline {time_constraint.split()[-1].replace('s', '')}-by-{time_constraint.split()[-1].replace('s', '')}. 
-    Also provide the started code afterwards.
+    Also provide the starter code afterwards.
     '''
 
     print(system_prompt, query)
 
     try:
         response = openai.ChatCompletion.create(
-            # model='gpt-3.5-turbo',
-            model= 'gpt-4',
+            model='gpt-3.5-turbo',
+            # model= 'gpt-4',
             messages=[{
                 'role':'system','content':system_prompt,
                 'role':'user','content':query

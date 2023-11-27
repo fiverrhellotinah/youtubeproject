@@ -18,7 +18,15 @@ $(document).ready(function () {
         'Philosophy': 'Philosopher'
     };
 
+    const buildProjectTypeOptions  = {
+        'General Coding': 'Senior Programmer',
+        'Data Science': 'Senior Data Scientist',
+        'AI Expert': 'AI Expert',
+        'Web Developement': 'Senior Web Developer' 
+        }
+
     const projectTypeDropdown = $('#project_type_dropdown');
+    const buildProjectTypeDropdown = $('#build_project_type_dropdown');
 
     $.each(projectTypeOptions, function(key, value) {
         projectTypeDropdown.append($('<option>', {
@@ -27,15 +35,22 @@ $(document).ready(function () {
         }));
     });
 
+    $.each(buildProjectTypeOptions, function(key, value) {
+        buildProjectTypeDropdown.append($('<option>', {
+            value: key,
+            text: key
+        }));
+    });
+
     const referencPreferenceDropDown = $("#reference_preference")
 
-    const referencePreferanceOptions= {"Youtube": "youtube", "Book": "book", "List of Authors": "list of authors"}
+    const referencePreferanceOptions= {"Youtube (free)": "youtube", "Video": "video", "Book": "book", "Text": "text", "Combo": "youtube, video, text, book"}
 
     
 
     $.each(referencePreferanceOptions, function(key, value) {
         referencPreferenceDropDown.append($('<option>', {
-            value:  key.toLowerCase(),
+            value:  value,
             text: key
         }));
     });
