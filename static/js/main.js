@@ -22,7 +22,7 @@ $(document).ready(function () {
 
     $.each(projectTypeOptions, function(key, value) {
         projectTypeDropdown.append($('<option>', {
-            value: value,
+            value: key.toLowerCase(),
             text: key
         }));
     });
